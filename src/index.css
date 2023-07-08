@@ -32,7 +32,7 @@ html {
   --grey-300: #cbd5e1;
   --grey-400: #94a3b8;
   --grey-500: #64748b;
-  --grey-600: #475569; 
+  --grey-600: #475569;
   --grey-700: #334155;
   --grey-800: #1e293b;
   --grey-900: #0f172a;
@@ -42,7 +42,7 @@ html {
 
   /* abv */
   --small-text: 0.7rem;
-  
+
   /* rest of the vars */
   --backgroundColor: var(--grey-50);
   --textColor: var(--grey-900);
@@ -121,7 +121,7 @@ a {
 ul {
   list-style-type: none;
   padding: 0;
-} 
+}
 
 .img {
   width: 45%;
@@ -192,7 +192,7 @@ ul {
 nav {
   background: var(--white);
   box-shadow: var(--shadow-1);
-}  
+}
 
 .nav-header {
   display: flex;
@@ -254,7 +254,8 @@ input:focus {
 
 /* mobile */
 
-.nav-toggle { /* hamburger menu */
+.nav-toggle {
+  /* hamburger menu */
   font-size: 1.5rem;
   color: var(--primary-300);
   background: transparent;
@@ -279,14 +280,14 @@ input:focus {
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
   display: block;
-  padding: 0.5rem 1rem; 
+  padding: 0.5rem 1rem;
   transition: var(--transition);
 }
 
 .links a:hover {
   background: var(--primary-50);
   color: var(--primary-700);
-  padding-left: 1.5rem; 
+  padding-left: 1.5rem;
 }
 
 .links-container {
@@ -382,7 +383,7 @@ main {
 }
 
 .refetch-btn {
-  margin-top: 1rem;;
+  margin-top: 1rem;
 }
 
 /* Footer */
@@ -418,6 +419,28 @@ main {
   letter-spacing: var(--letterSpacing);
 }
 
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found h2 {
+  color: var(--grey-800);
+  font-size: 1.75rem;
+  margin: 0.75rem 0;
+}
+
+.not-found p {
+  color: var(--grey-600);
+}
+
+.not-found svg {
+  font-size: 5rem;
+}
+
 @media screen and (min-width: 768px) {
   .beers {
     grid-template-columns: repeat(2, 1fr);
@@ -426,28 +449,29 @@ main {
 
 @media screen and (min-width: 992px) {
   .beers {
-    grid-template-columns: repeat(3, 1fr)
+    grid-template-columns: repeat(3, 1fr);
   }
   .nav-toggle {
     display: none;
   }
-  .nav-header { /* rmv for larger screens and use nav-center class */
+  .nav-header {
+    /* rmv for larger screens and use nav-center class */
     display: flex;
     gap: 1rem;
     padding: 0;
   }
   .nav-center {
     max-width: var(--max-width);
-    width: var(--fluid-width); 
+    width: var(--fluid-width);
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-  } 
-  
+  }
+
   .links-container {
-    height: auto !important; 
+    height: auto !important;
   }
   .links {
     display: flex;
@@ -464,7 +488,6 @@ main {
 
 @media screen and (min-width: 1200px) {
   .beers {
-    grid-template-columns: repeat(4, 1fr)
-
+    grid-template-columns: repeat(4, 1fr);
   }
 }

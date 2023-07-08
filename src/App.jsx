@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
-import Beers from "./components/Beers";
-import Header from "./components/Header";
-import Loading from "./components/Loading";
-import Footer from "./components/Footer";
+import { useEffect, useState } from 'react';
+import Beers from './components/Beers';
+import Header from './components/Header';
+import Loading from './components/Loading';
+import Footer from './components/Footer';
 import axios from 'axios';
+import { PageNotFound } from './components/PageNotFound';
 
-export const url = "https://api.punkapi.com/v2/beers"; 
+export const url = 'https://api.punkapi.com/v2/beers';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,10 +20,12 @@ function App() {
   const fetchBeers = async () => {
     setIsLoading(true);
     try {
-      const {data} = await axios(url);
-      headers: {
-        Accept: 'application/json'
-      }
+      const { data } = await axios(url, {
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
       setBeers(data);
     } catch (error) {
       console.log(error.response);
@@ -41,25 +44,18 @@ function App() {
       </main>
     );
   }
-  if (beers.length === 0) {
-    return (
-      <main>
-        <div className='title'>
-          <h2>no beers left</h2>
-          <button className='btn refetch-btn' onClick={() => fetchBeers()}>
-            refresh your beers!
-          </button>
-        </div>
-      </main>
-    );
-  }
+
   return (
-  <div>
-    <Header beers={beers} setBeers={setBeers} />
-    <Beers beers={beers} removeBeer={removeBeer} />
-    <Footer />
-  </div>
-  )
+    <div>
+      <Header beers={beers} setBeers={setBeers} setIsLoading={setIsLoading} />
+      {beers.length === 0 && !isLoading ? (
+        <PageNotFound />
+      ) : (
+        <Beers beers={beers} removeBeer={removeBeer} />
+      )}
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

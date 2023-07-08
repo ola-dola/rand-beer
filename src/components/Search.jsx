@@ -1,17 +1,25 @@
-import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
-import { url } from "../App";
-import axios from "axios";
+import { FaSearch } from 'react-icons/fa';
+import { useState } from 'react';
+import { url } from '../App';
+import axios from 'axios';
 
-const Search = ({ beers, setBeers }) => {
-  const [searchBeer, setSearchBeer] = useState("");
+const Search = ({ beers, setBeers, setIsLoading }) => {
+  const [searchBeer, setSearchBeer] = useState('');
 
   const fetchBeers = async (value) => {
+    // reload results if the value is empty i.e user has deleted all input
+    if (!value) {
+      setIsLoading(true);
+      return window.location.reload();
+    }
+
     try {
-      const { data } = await axios(`${url}?beer_name=${value}`);
-      headers: {
-        Accept: "application/json";
-      }
+      const { data } = await axios(`${url}?beer_name=${value}`, {
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
       const results = data.filter((beer) => {
         return (
           value &&
@@ -20,7 +28,7 @@ const Search = ({ beers, setBeers }) => {
           beer.name.toLowerCase().includes(value.toLowerCase())
         );
       });
-      setBeers(results);
+      setBeers(() => results);
     } catch (error) {
       console.log(error.response);
     }

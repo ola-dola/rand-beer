@@ -1,7 +1,11 @@
-import React from 'react'
+import {TbError404}from 'react-icons/tb'
 
 export const PageNotFound = () => {
   return (
-    <div>PageNotFound</div>
+    <div className='not-found'>
+      <TbError404 />
+      <h2>Beer not found</h2>
+      <p>No beer for the search term you entered</p>
+    </div>
   )
 }
