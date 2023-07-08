@@ -1,3 +1,5 @@
+import imgUnavailable from "../assets/bar-img-unavailable.png";
+
 const Beer = ({ id, abv, name, tagline, image_url, removeBeer }) => {
   return (
     <article className='single-beer'>
@@ -8,7 +10,7 @@ const Beer = ({ id, abv, name, tagline, image_url, removeBeer }) => {
         <h5>{tagline}</h5>
       </div>
       <div className='img-wrapper'>
-        <img src={image_url} alt={name} />
+        <img src={image_url || imgUnavailable} alt={name} />
       </div>
       <span className='beer-abv text-small'>abv {abv}%</span>
       <div className='btn-container'>
