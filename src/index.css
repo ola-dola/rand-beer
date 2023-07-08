@@ -312,17 +312,26 @@ main {
   box-shadow: var(--shadow-1);
   transition: var(--transition);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .single-beer:hover {
   box-shadow: var(--shadow-3);
 }
 
-.single-beer .img {
+.single-beer .img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  margin-top: auto;
+}
+
+.img-wrapper img {
   height: 20rem;
   border-top-right-radius: var(--borderRadius);
   border-top-left-radius: var(--borderRadius);
-  margin-bottom: 1rem;
 }
 
 .beer-info {
@@ -356,7 +365,7 @@ main {
 .btn-container {
   display: flex;
   justify-content: center;
-  margin: 1rem;
+  margin: 0 1rem 1rem;
 }
 
 .delete-btn {
