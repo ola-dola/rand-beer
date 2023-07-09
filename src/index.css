@@ -443,6 +443,23 @@ main {
   font-size: 5rem;
 }
 
+.error-container button,
+.not-found button {
+  width: 180px;
+  padding: 16px;
+  background: var(--primary-400);
+  border: none;
+  color: white;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.not-found button { 
+  margin-top: 0.75rem;
+}
+
 .error-container {
   height: 100vh;
   display: flex;
@@ -456,18 +473,6 @@ main {
 
 .error-container h2 {
   margin: 0;
-}
-
-.error-container button {
-  width: 180px;
-  padding: 16px;
-  background: var(--primary-400);
-  border: none;
-  color: white;
-  border-radius: 40px;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background-color 0.2s;
 }
 
 .error-container button:hover {
